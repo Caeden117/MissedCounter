@@ -15,6 +15,8 @@ namespace ExampleMod
          * MissCounter | By Caeden117
          * This plugin was made for the Example Mod tutorial in the Beat Saber Wiki:
          * https://wiki.assistant.moe/modding/example-mod
+         * 
+         * Crashing help from ya boi Kyle1413
          */
 
 
@@ -31,13 +33,13 @@ namespace ExampleMod
 
         private void SceneManagerOnActiveSceneChanged(Scene arg0, Scene arg1)
         {
-            if (!enabled) return;
-            if (!env.Contains(arg1.name)) return; //using System.Linq;
-            new GameObject("MissedCounter").AddComponent<MissedCounter>();
         }
 
         private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
+            if (!enabled) return;
+            if (!env.Contains(arg0.name)) return; //using System.Linq;
+            new GameObject("MissedCounter").AddComponent<MissedCounter>();
         }
 
         public void OnApplicationQuit()
