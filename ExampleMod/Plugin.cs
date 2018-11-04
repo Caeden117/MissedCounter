@@ -9,7 +9,7 @@ namespace MissedCounter
     public class Plugin : IPlugin
     {
         public string Name => "MissedCounter";
-        public string Version => "1.0.5";
+        public string Version => "1.0.2";
 
         /*
          * MissedCounter | By Caeden117
