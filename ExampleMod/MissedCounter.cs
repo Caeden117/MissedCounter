@@ -8,12 +8,13 @@ using TMPro;
 using System.Collections;
 using System.Threading;
 
-namespace ExampleMod
+namespace MissedCounter
 {
     class MissedCounter : MonoBehaviour
     {
         int counter = 0;
         private ScoreController score;
+        //private ComboUIController combo;
         GameObject countGO;
         TextMeshPro counterText;
 
@@ -28,6 +29,8 @@ namespace ExampleMod
                 while (true)
                 {
                     score = Resources.FindObjectsOfTypeAll<ScoreController>().FirstOrDefault();
+                    //combo = Resources.FindObjectsOfTypeAll<ComboUIController>().FirstOrDefault();
+                    //if (score != null && combo != null) break;
                     if (score != null) break;
                     Thread.Sleep(10);
                 }
@@ -41,7 +44,7 @@ namespace ExampleMod
             counterText.text = "0";
             counterText.fontSize = 4;
             counterText.color = Color.white;
-            counterText.font = Resources.Load<TMP_FontAsset>("Beon SDF No-Glow");
+            //counterText.font = combo.GetPrivateField<TextMeshProUGUI>("_comboText").font;
             counterText.alignment = TextAlignmentOptions.Center;
             counterText.rectTransform.position = Plugin.counterPosition + new Vector3(0, -0.4f, 0);
 
@@ -50,7 +53,7 @@ namespace ExampleMod
             label.text = "Misses";
             label.fontSize = 3;
             label.color = Color.white;
-            label.font = Resources.Load<TMP_FontAsset>("Beon SDF No-Glow");
+            //label.font = combo.GetPrivateField<TextMeshProUGUI>("_comboText").font;
             label.alignment = TextAlignmentOptions.Center;
             label.rectTransform.position = Plugin.counterPosition;
 
@@ -59,6 +62,12 @@ namespace ExampleMod
                 score.noteWasCutEvent += onNoteCut;
                 score.noteWasMissedEvent += onNoteMiss;
             }
+        }
+
+        void OnDestroy()
+        {
+            score.noteWasCutEvent -= onNoteCut;
+            score.noteWasMissedEvent -= onNoteMiss;
         }
 
         private void onNoteCut(NoteData data, NoteCutInfo info, int c)

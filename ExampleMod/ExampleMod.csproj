@@ -7,8 +7,8 @@
     <ProjectGuid>{BEB208EA-9CD3-4A9F-9284-29F44A295EEE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExampleMod</RootNamespace>
-    <AssemblyName>ExampleMod</AssemblyName>
+    <RootNamespace>MissedCounter</RootNamespace>
+    <AssemblyName>MissedCounter</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
