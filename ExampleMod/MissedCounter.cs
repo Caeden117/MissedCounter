@@ -18,24 +18,22 @@ namespace MissedCounter
         GameObject countGO;
         TextMeshPro counterText;
 
-        async void Awake()
+        void Awake()
         {
-            await GetScore();
+            StartCoroutine(GetScore());
         }
 
-        Task GetScore()
+        IEnumerator GetScore()
         {
-            return Task.Run(() => {
-                while (true)
-                {
-                    score = Resources.FindObjectsOfTypeAll<ScoreController>().FirstOrDefault();
-                    //combo = Resources.FindObjectsOfTypeAll<ComboUIController>().FirstOrDefault();
-                    //if (score != null && combo != null) break;
-                    if (score != null) break;
-                    Thread.Sleep(10);
-                }
-                Init();
-            });
+            while (true)
+            {
+                score = Resources.FindObjectsOfTypeAll<ScoreController>().FirstOrDefault();
+                //combo = Resources.FindObjectsOfTypeAll<ComboUIController>().FirstOrDefault();
+                //if (score != null && combo != null) break;
+                if (score != null) break;
+                yield return null;
+            }
+            Init();
         }
 
         void Init()
