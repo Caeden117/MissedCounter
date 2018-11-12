@@ -9,14 +9,14 @@ namespace MissedCounter
     public class Plugin : IPlugin
     {
         public string Name => "MissedCounter";
-        public string Version => "1.0.2";
+        public string Version => "1.0.3";
 
         /*
          * MissedCounter | By Caeden117
          * This plugin was made for the Example Mod tutorial in the Beat Saber Wiki:
          * https://wiki.assistant.moe/modding/example-mod
          * 
-         * Crashing help from ya boi Kyle1413
+         * Crashing help from ya bois Kyle1413 and brian
          */
 
 
